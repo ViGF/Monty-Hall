@@ -13,7 +13,7 @@ Em seu terminal:
 # Clone o repositório
 git clone https://github.com/ViGF/Monty-Hall.git
 # Acesse a pasta do projeto
-cd "Monty Hal"
+cd "Monty Hall"
 # Instale as dependências
 yarn add
 # Execute a aplicação
