@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link'
 import { useState } from 'react';
+import { useAppContext } from '../hooks/Context';
 
 import Cartao from "../components/Cartao";
 import EntradaNumerica from '../components/EntradaNumerica';
@@ -8,13 +9,12 @@ import styles from '../styles/Home.module.css'
 
 export default function Home() {
   const [qtdePortas, setQtdePortas] = useState(3)
-  const [portaComPresente, setPortaComPresente] = useState(1)
+  const [temPresente, setTemPresente] = useState(1)
+
+  const context = useAppContext();
 
   function enviarParametros() {
-    fetch('/api/params', {
-      method: 'POST',
-      body: JSON.stringify({qtdePortas, portaComPresente})
-    })
+    context.setParams({qtdePortas, temPresente})
   }
 
   return (
@@ -37,8 +37,8 @@ export default function Home() {
       <div>
       <Cartao>
           <EntradaNumerica text='Porta com Presente:'
-            value={portaComPresente}
-            onChange={novaPortaComPresente => setPortaComPresente(novaPortaComPresente)}
+            value={temPresente}
+            onChange={novaPortaComPresente => setTemPresente(novaPortaComPresente)}
           />
         </Cartao>
         <Cartao bgColor='#28a085'>

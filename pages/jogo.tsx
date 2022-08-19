@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 import Link from 'next/link'
+import { useAppContext } from '../hooks/Context';
 
 import Porta from "../components/Porta";
 import { atualizarPortas, criarPortas } from '../functions/portas'
@@ -10,25 +10,18 @@ export default function Jogo() {
     const [portas, setPortas] = useState([])
     const [valido, setValido] = useState(true)
 
-    const router = useRouter()
+    const context = useAppContext();
 
     useEffect(() => {
-        fetchParametros()
-    }, [])
-
-    async function fetchParametros() {
-        const resp = await fetch('/api/params')
-        const parametros = await resp.json()
-
-        const portas = parametros.qtdePortas
-        const temPresente = parametros.portaComPresente
+        const portas = context.params.qtdePortas
+        const temPresente = context.params.temPresente
 
         const portasValidas = portas >= 3 && portas <= 100
         const temPresenteValido = temPresente >=1 && temPresente <= portas
 
         setValido(portasValidas && temPresenteValido)
         setPortas(criarPortas(portas, temPresente))
-    }
+    }, [context])
 
     function renderizarPortas() {
         return valido && portas.map((porta) => {
