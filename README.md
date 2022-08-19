@@ -11,9 +11,9 @@ React | Next | Vite | TypeScript
 Em seu terminal:
 ```bash
 # Clone o repositório
-git clone https://github.com/ViGF/Monty Hall.git
+git clone https://github.com/ViGF/Monty-Hall.git
 # Acesse a pasta do projeto
-cd Monty Hall
+cd "Monty Hal"
 # Instale as dependências
 yarn add
 # Execute a aplicação
