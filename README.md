@@ -5,7 +5,7 @@ Monty Hall, jogo das portas. Escolha a quantidade de portas e uma delas para pos
 ![cover](public/jogo.png)
 
 ## ✨ Tecnologias
-React | Next | Vite | TypeScript
+React | Next | TypeScript
 
 ## 💻 Uso
 Em seu terminal:
